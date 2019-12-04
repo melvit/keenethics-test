@@ -180,7 +180,7 @@ const ContactForm = () => {
             text={(
               <>
 I want to use a&nbsp;
-                <a href="https://mailchi.mp/keenethics/offers-for-keen-subscribers" className="grey sub-dis">subscriber discount</a>
+                <a href="https://mailchi.mp/keenethics/offers-for-keen-subscribers" target="blanck" className="grey sub-dis">subscriber discount</a>
               </>
 )}
             name="estimateFormIsSubscriber"
@@ -203,9 +203,8 @@ I want to use a&nbsp;
           </button>
         </div>
         <div className="privacy-policy">
-            By submting I agree to KeenEthics’
-          {' '}
-          <a href="/privacy-policy" classNamve="">Privacy Policy</a>
+            By submitting, I agree to KeenEthics’&nbsp;
+          <a href="/privacy-policy" target="blanc" classNamve="">Privacy Policy</a>
         </div>
       </form>
     </div>

@@ -164,7 +164,8 @@ app.prepare().then(() => {
     `;
     const mailOptions = {
       from: 'no-reply@keenethics.com',
-      to: 'business@keenethics.com',
+      //to: 'business@keenethics.com',
+      to: 'vitaliy.melnychenko@keenethics.com',
       subject: `New message from ${email.value}`,
       html,
       attachments: [
@@ -198,7 +199,7 @@ app.prepare().then(() => {
       subscription_status: !!isSubscriber ? 'Subscribed' : 'Unsubscribed',
     };
 
-    sendContactToHubSpot(hubSpotParameters);
+    //sendContactToHubSpot(hubSpotParameters);
   });
   server.post('/estimate', (req, res) => {
     const formFildsData = JSON.parse(req.body.data);
