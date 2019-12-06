@@ -47,6 +47,7 @@ const ContactForm = () => {
     error: false,
   });
   const [fileName, setFileName] = useState('Attach you file');
+  const [fileSize, setFileSize] = useState('up to 10MB');
 
   const setInitialState = () => {
     setFirstname({ value: '', error: false });
@@ -83,6 +84,9 @@ const ContactForm = () => {
           setNotifyMessage(json.status.toString());
         }
 
+        if (Object.keys(json.errorField)[0] === 'firstname') setFirstname(json.errorField.firstname);
+        if (Object.keys(json.errorField)[0] === 'email') setEmail(json.errorField.email);
+
         setIsPending(false);
         setStatus(json.status.toString());
 
@@ -90,7 +94,6 @@ const ContactForm = () => {
           setInitialState();
         }
       })
-      // eslint-disable-next-line no-console
       .catch((err) => console.error(err));
   };
   return (
@@ -164,12 +167,13 @@ const ContactForm = () => {
             text={(fileName.length > 10 && fileName !== 'Attach you file')
               ? fileName.substring(0, 10).concat('...')
               : fileName}
-            limit="up to 10MB"
+            limit={fileSize}
             allowedExts=".pdf, doc, docx, jpeg, jpg, png, xls, xlsx, ppt, pptx"
             onChange={
               (e) => {
                 setFile(e.target.files[0]);
                 setFileName(e.target.files[0].name);
+                setFileSize(` ${Math.round(e.target.files[0].size / 10000) / 100} MB `); // 1mb = 1000000
               }
             }
           />
