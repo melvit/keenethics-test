@@ -25,7 +25,7 @@
     "contentful": "^7.8.1",
     "dotenv-safe": "^8.1.0",
     "es6-promise": "^4.2.8",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-fileupload": "^1.1.6-alpha.6",
     "express-uncapitalize": "^1.0.0",
     "googleapis": "^42.0.0",
